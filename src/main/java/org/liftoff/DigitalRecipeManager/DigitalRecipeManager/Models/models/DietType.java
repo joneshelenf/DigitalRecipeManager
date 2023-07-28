@@ -1,4 +1,4 @@
-package org.liftoff.DigitalRecipeManager.DigitalRecipeManager.models;
+package org.liftoff.DigitalRecipeManager.DigitalRecipeManager.Models.models;
 
 public enum DietType {
     VEGAN("Vegan"),
