@@ -1,7 +1,4 @@
 package org.liftoff.DigitalRecipeManager.DigitalRecipeManager.models;
-
-import org.liftoff.DigitalRecipeManager.DigitalRecipeManager.models.data.Recipe;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
@@ -10,17 +7,14 @@ import java.util.List;
 
 @Entity
 public class Ingredient extends AbstractEntity {
-
     @NotNull
     private String name;
 
     @ManyToMany(mappedBy = "ingredients")
     private final List<Recipe> recipes = new ArrayList<>();
-
     public Ingredient() {}
-
     public Ingredient(String name) {
-        this();
+
         this.name = name;
     }
 
@@ -35,6 +29,7 @@ public class Ingredient extends AbstractEntity {
     public List<Recipe> getRecipes() {
         return recipes;
     }
+
 
     public void addRecipe(Recipe recipe) {this.recipes.add(recipe);}
 
