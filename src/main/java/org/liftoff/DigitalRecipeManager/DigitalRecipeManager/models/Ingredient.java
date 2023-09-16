@@ -1,26 +1,21 @@
 package org.liftoff.DigitalRecipeManager.DigitalRecipeManager.models;
-
-import org.liftoff.DigitalRecipeManager.DigitalRecipeManager.models.data.Recipe;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Ingredient extends AbstractEntity {
-
     @NotNull
     private String name;
 
-    @ManyToMany(mappedBy = "ingredients")
-    private final List<Recipe> recipes = new ArrayList<>();
-
+    @OneToMany(mappedBy = "ingredient")
+    private final List<RecipeMeasurement> recipes = new ArrayList<>();
     public Ingredient() {}
-
     public Ingredient(String name) {
-        this();
+
         this.name = name;
     }
 
@@ -32,11 +27,12 @@ public class Ingredient extends AbstractEntity {
         this.name = name;
     }
 
-    public List<Recipe> getRecipes() {
+    public List<RecipeMeasurement> getRecipes() {
         return recipes;
     }
 
-    public void addRecipe(Recipe recipe) {this.recipes.add(recipe);}
+
+    public void addRecipe(RecipeMeasurement recipe) {this.recipes.add(recipe);}
 
 
     @Override

@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+<title>Login</title>
 <body class="container">
 
-<!--<header th:replace="fragments :: header"></header>-->
+<div>
+  <h1>
+    Welcome to your digital recipe manager!
+    <br>
+    Please log in to continue.
+  </h1>
+</div>
 
 <form method="post">
   <div class="form-group">
@@ -22,7 +29,8 @@
   <input type="submit" class="btn btn-primary" value="Log In" />
 </form>
 
-<p>Don't have an account? <a href="/register">Register for one.</a></p>
+<br>
+<p>Don't have an account? <a href="/register">Register for free.</a></p>
 
 </body>
 </html>

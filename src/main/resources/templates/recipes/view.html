@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<br><br><br><br><br><br>
+
+<div class="container">
+    <h2 class="extra-bold xs-mb05">Recipe Name:<i> <small th:text="${recipe.name}" >Subtitle</small></i></h2>
+
+
+    <div class="border-top my-3"></div>
+
+    <div class="row">
+
+        <div class="col-sm">
+            <h5 class="extra-bold xs-mb05">Cooking Time</h5>
+            <p class="xs-text-4 xs-hide md-block" th:text="${recipe.cookingTime} + ' minutes'"></p>
+        </div>
+        <div class="col-sm">
+            <h5 class="extra-bold xs-mb05">Meal Type</h5>
+            <p class="xs-text-4 xs-hide md-block" th:text="${recipe.mealType}"></p>
+        </div>
+
+        <div class="col-sm">
+            <h5 class="extra-bold xs-mb05">Cuisine Type</h5>
+
+            <p class="xs-text-4 xs-hide md-block" th:text="${recipe.cuisineType}"></p>
+        </div>
+
+        <div class="col-sm">
+            <h5 class="extra-bold xs-mb05">Diet Type</h5>
+
+            <p class="xs-text-4 xs-hide md-block" th:text="${recipe.dietType}"></p>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="border-top my-3"></div>
+
+<div class="row">
+
+    <div class="col-lg">
+        <h3 class="extra-bold xs-mb05">Ingredients</h3>
+
+    </div>
+
+
+    <div class="col-lg">
+        <h3 class="extra-bold xs-mb05">Instructions</h3>
+
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg">
+        <p class="xs-text-4 xs-hide md-block">
+
+        <table>
+        <tr th:each="ingredientView: ${ingredientViews}">
+            <td th:text="${ingredientView.quantity}" />
+            <td th:text="${ingredientView.measurement}" />
+            <td th:text="${ingredientView.ingredient}" />
+        </tr>
+    </table>
+        </p>
+
+    </div>
+
+
+    <div class="col-lg">
+        <p class="xs-text-4 xs-hide md-block" th:text="${recipe.instructions}"></p>
+
+    </div>
+</div>
+
+<a class="nav-link" href="/recipes"><button type="button" class="btn btn-primary">Go Back to recipes</button></a>
+<br>
+<a class="nav-link" th:href="@{/recipes/edit/{id}(id=${recipe.id})}"><button type="button" class="btn btn-danger">Edit</button></a>
+</body>
+</html>
